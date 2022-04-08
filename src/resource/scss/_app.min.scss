@@ -4,6 +4,14 @@ html {
     min-height: 100%
 }
 
+.nav-effect a:hover {
+    text-decoration: underline;
+}
+
+.status {
+    color: green;
+}
+
 body {
     overflow-x: hidden
 }
@@ -4968,3 +4976,5 @@ div.hopscotch-bubble .hopscotch-content {
 
 
 /*# sourceMappingURL=app.min.css.map */
+
+;

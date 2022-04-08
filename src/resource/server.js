@@ -5,15 +5,13 @@ const path = require('path');
 const nodemailer = require('nodemailer');
 const bodyParse = require('body-parser');
 const handlebars = require('express-handlebars');
-const router = require('./routers');
+
 const methodOverride = require('method-override');
 const cookieParser = require('cookie-parser');
 
-const mysqldb = require('../config/database/sqlConnect');
+
 const { required } = require('nodemon/lib/config');
 
-// Connect to DB
-mysqldb.connect();
 
 //Using cookie
 app.use(cookieParser())
@@ -52,11 +50,14 @@ app.set('views', path.join(__dirname, 'views'));
 app.get('/', (req, res) => {
     res.render('home');
 })
-router(app);
-app.get('/', (req, res) => {
-        res.render('home');
-    })
-    // Start server
+app.get('/product', (req, res) => {
+    res.render('productManager');
+})
+app.get('/addProduct', (req, res) => {
+    res.render('addProduct');
+})
+
+// Start server
 app.listen(port, () => {
     console.log(`App listening at http://localhost:${port}`)
 })
